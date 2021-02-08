@@ -1,13 +1,10 @@
-{:builds {:frontend {:target :browser
-                     :output-dir "resources/public/js"
-                     :asset-path "/js"
-                     :modules {:main {:init-fn app.core/init}}}}
+{:builds {:frontend {:target :node-script
+                     :main app.core/init
+                     :output-to "target/main.js"}}
 
  :dependencies [[cider/cider-nrepl "0.25.8"]
                 [refactor-nrepl "2.5.0"]]
 
  :nrepl {:middleware [refactor-nrepl.middleware/wrap-refactor]}
-
- :dev-http {3000 "resources/public"}
 
  :source-paths ["src"]}
